@@ -1,51 +1,26 @@
 ---
+import { Image } from "astro:assets"
+import homepage from "../images/homepage.jpg"
 import Nav from "../components/Navbar.astro"
 ---
 <Nav />
 
-<head>
-	<title>hello</title>
-</head>
-
-<div class="header">
-	<h1>Hi this XIAOTONG homepage</h1>	
-</div>
-
 <style>
-	.header{
-		justify-content:center;
-
-		font-family: fantasy;
-		color:blueviolet;
-		font-size:2.5rem;
-		text-align: center;
-
-		border: 10px solid rgb(255, 215, 0);
-		padding:1px;
-		display:flexbox;
-		background-color:silver;
+	main{
+		min-height: 150vh;
+		width: 150vh;
 	}
 </style>
 
-<div class = "body">
-	<p>Hello</p>
-</div>
+<Image 
+src={homepage} 
+alt="homepage"
+class ="homepage-img"
+/>
 
 <style>
-	.body{
-		display: flex;
-		justify-content: center;
-		font-size: 100px;
-		font-family: fantasy;
-		background-color:blueviolet;
+	.homepage-img {
+		width: 100%;
 	}
 </style>
 
-<style>
-	body{
-		background-image: url("https://bsdstorage.blob.core.windows.net/media/Default/fgg/196/Vincent%20Massey%20Highschool%20-%20Logo.png");
-		background-repeat:no-repeat;
-		background-position:top;
-		background-size:cover;
-	}
-</style>
