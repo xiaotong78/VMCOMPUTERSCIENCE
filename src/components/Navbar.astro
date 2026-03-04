@@ -1,19 +1,70 @@
+---
+import { Image } from "astro:assets";
+import vmhslogo from '../images/vmhslogo.webp';
+---
 <nav class ="nav">
-    <a href="https://vmcomputerscience.netlify.app/">homepage</a>
+    <ul class="nav-links">
+        <li><a href="https://vmcomputerscience.netlify.app/">homepage</a></li>
+        <li><a href="https://vmcomputerscience.netlify.app/">homepage</a></li>
+    </ul>  
+    <div class="logo"><Image src = {vmhslogo} alt="logo"></Image></div>
+    <ul class="nav-links">
+        <li><a href="https://vmcomputerscience.netlify.app/">homepage</a></li>
+        <li><a href="https://vmcomputerscience.netlify.app/">homepage</a></li>
+    </ul>
 </nav>
 
 <style>
+    @import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap');
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
     .nav {
+        position: fixed;
+        width: 100%;
+        overflow: hidden;
+        margin: 0;
+        
+        background-color: #693ca0;
+  
+        clip-path: polygon(0% 0%, 100% 0%, 90% 100%, 10% 100%);
+        clip-path: polygon(0% 0%, 100% 0%, 98% 80%, 50% 100%, 2% 80%);
+
+        background: linear-gradient(90deg, #1a0b2e 0%, #683aa8 50%, #1a0b2e 100%);
+        
         display: flex;
-        gap: 2rem;
+        justify-content:space-between;
+        align-items: center;
         padding: 1rem;
-        background: black;
+        color: #d8b4fe;
+    }
+    .nav-links{
+        display: flex;
+        flex: 1;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        gap: 30px;
+    }
+    .nav-links:first-of-type{
+        justify-content: flex-start;        
     }
 
-    .nav a {
-        color: white;
-        text-decoration: none;
-        font-weight:normal;
-        font-family:fantasy;
+    .nav-links:last-of-type{
+        justify-content: flex-end;
     }
+    .nav li a{
+        text-decoration:underline;
+        color: #d8b4fe;
+        font-family:'Pixelify Sans', sans-serif;
+        font-size:2.5rem;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+    }
+    .logo img{
+        height: 150px;
+        width: auto;
+    }   
 </style>

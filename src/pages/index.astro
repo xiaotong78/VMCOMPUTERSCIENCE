@@ -1,26 +1,32 @@
 ---
-import { Image } from "astro:assets"
-import homepage from "../images/homepage.jpg"
+import { Image } from "astro:assets";
+import home from '../images/homepage.jpg';
 import Nav from "../components/Navbar.astro"
 ---
 <Nav />
+<nav class="homepage">
+  <div class="title">
+    <Image 
+    src = {home} 
+    alt="home"
+    class="full-screen-img">
+  </div>
+</nav>
 
 <style>
-	main{
-		min-height: 150vh;
-		width: 150vh;
-	}
+* {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+  .title img{
+    display: flex;
+    width: 100%;
+    height: auto;
+    justify-content: center;
+    align-items: center;
+  }
+    
 </style>
 
-<Image 
-src={homepage} 
-alt="homepage"
-class ="homepage-img"
-/>
-
-<style>
-	.homepage-img {
-		width: 100%;
-	}
-</style>
 
