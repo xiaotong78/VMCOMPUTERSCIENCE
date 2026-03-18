@@ -1,6 +1,6 @@
 ---
 import { Image } from "astro:assets";
-import home from '../images/homepage.jpg';
+import gallery from '../images/gallery.png';
 import Nav from "../components/Navbar.astro"
 ---
 <Nav />
@@ -25,8 +25,5 @@ import Nav from "../components/Navbar.astro"
 </style>
 </head>
 <body>
-<img 
-        class="fit-picture"
-        src="H:\VMCOMPUTERSCIENCE\src\images\gallery.png"
->
+                <Image src={gallery} alt="gallery" />
 </body>
