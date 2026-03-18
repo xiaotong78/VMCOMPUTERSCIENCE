@@ -1,4 +1,32 @@
 ---
+import { Image } from "astro:assets";
+import home from '../images/homepage.jpg';
 import Nav from "../components/Navbar.astro"
 ---
 <Nav />
+
+   <head>
+<title>
+            vmhs
+</title>
+<style>
+            body {
+                margin: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                background-color: rgb(201, 158, 219);
+            }
+            img{
+                max-width: 100%;
+                height: auto;
+            }
+</style>
+</head>
+<body>
+<img 
+        class="fit-picture"
+        src="H:\VMCOMPUTERSCIENCE\src\images\gallery.png"
+>
+</body>
