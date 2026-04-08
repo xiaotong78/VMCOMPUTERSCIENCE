@@ -1,4 +1,41 @@
 ---
 import Nav from "../components/Navbar.astro"
+import Footer from "../components/Footer.astro"
 ---
-<Nav />
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>VMHS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <Nav />
+
+    <main>
+      <!-- YOUR CONTENT HERE -->
+    </main>
+
+    <Footer />
+
+    <style>
+      body {
+        margin: 0;
+        background: #0f051a;
+        color: white;
+        font-family: sans-serif;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+      }
+
+      main {
+        flex: 1;
+        padding-top: 140px; /* offset for fixed navbar */
+      }
+    </style>
+  </body>
+</html>
