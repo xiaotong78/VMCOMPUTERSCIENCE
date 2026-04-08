@@ -1,34 +1,250 @@
 ---
 import { Image } from "astro:assets";
 import home from '../images/homepage.jpg';
+import schoolBg from '../images/school-silhouette.png';
 import Nav from "../components/Navbar.astro"
 import Footer from "../components/Footer.astro"
 ---
 <Nav />
-<nav class="homepage">
-  <div class="title">
-    <Image 
-    src = {home} 
-    alt="home"
-    class="full-screen-img">
-  </div>
-</nav>
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width" />
+		<title>VM Comp-Sci Hero</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+	</head>
+	<body>
+		<section class="hero-container">
+			<div class="frame-overlay">
+				<div class="tri tri-tl"></div>
+				<div class="tri tri-tr"></div>
+				<div class="tri tri-bl"></div>
+				<div class="tri tri-br"></div>
+			</div>
+
+			<div class="slider" id="mainSlider">
+				
+				<div class="slide slide-logo" style={`background-image: linear-gradient(rgba(190,141,194,0.6), rgba(190,141,194,0.6)), url(${schoolBg.src})`}>
+					<div class="logo-wrapper">
+						<p class="school-name">Vincent Massey High School</p>
+						<div class="pixel-text">
+							<span class="vm">VM</span>
+							<h1 class="cs-club">COMP-SCI<br><span class="club">CLUB</span></h1>
+						</div>
+					</div>
+				</div>
+
+				<div class="slide slide-news purple-bg">
+					<div class="news-content">
+						<h2>Hello</h2>
+						<p>Hello</p>
+						<a href="#" class="btn">Hello</a>
+					</div>
+				</div>
+
+				<div class="slide slide-news dark-bg">
+					<div class="news-content">
+						<h2>Hi</h2>
+						<p>Hi</p>
+						<a href="#" class="btn">Hi</a>
+					</div>
+				</div>
+			</div>
+
+			<nav class="hero-nav">
+				<button class="nav-item active" data-index="0">Home</button>
+				<button class="nav-item" data-index="1">My name is</button>
+				<button class="nav-item" data-index="2">Xiaotong</button>
+			</nav>
+		</section>
 <Footer />
+		<style>
+			:root {
+				--deep-purple: #1a0b2e;
+				--lavender: #be8dc2;
+				--pixel-font: 'Press Start 2P', system-ui;
+			}
 
-<style>
-* {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
-  .title img{
-    display: flex;
-    width: 100%;
-    height: auto;
-    justify-content: center;
-    align-items: center;
-  }
-    
-</style>
+			body {
+				margin: 0;
+				background: #000;
+				color: white;
+				font-family: sans-serif;
+				overflow-x: hidden;
+			}
 
+			.hero-container {
+				position: relative;
+				height: 100vh;
+				width: 100vw;
+				overflow: hidden;
+			}
 
+			/* --- Geometric Frame --- */
+			.frame-overlay {
+				position: absolute;
+				inset: 0;
+				z-index: 10;
+				pointer-events: none;
+			}
+
+			.tri {
+				position: absolute;
+				width: 25vw;
+				height: 25vh;
+				background: #3e0078;
+				clip-path: polygon(0 0, 100% 0, 0 100%);
+				opacity: 0.8;
+			}
+			.tri-tl { top: 0; left: 0; }
+			.tri-tr { top: 0; right: 0; transform: rotate(90deg); }
+			.tri-bl { bottom: 0; left: 0; transform: rotate(-90deg); background: #2a0063; }
+			.tri-br { bottom: 0; right: 0; transform: rotate(180deg); background: #2a0063; }
+
+			/* --- Slider Mechanics --- */
+			.slider {
+				display: flex;
+				width: 300vw;
+				height: 100%;
+				transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+			}
+
+			.slide {
+				width: 100vw;
+				height: 100%;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				position: relative;
+			}
+
+			/* --- Slide 1: Logo Style --- */
+			.slide-logo {
+				background-color: var(--lavender);
+				background-size: cover;
+				background-position: center center;
+				background-repeat: no-repeat;
+			}
+
+			.logo-wrapper {
+				text-align: center;
+				color: #210d35;
+				z-index: 5;
+			}
+
+			.school-name {
+				font-size: 1.2rem;
+				text-transform: uppercase;
+				letter-spacing: 4px;
+				margin-bottom: 2rem;
+				opacity: 0.7;
+			}
+
+			.pixel-text {
+				font-family: var(--pixel-font);
+			}
+
+			.vm {
+				font-size: 3rem;
+				display: block;
+				margin-bottom: -10px;
+			}
+
+			.cs-club {
+				font-size: 4.5rem;
+				line-height: 1;
+				margin: 0;
+			}
+
+			.club {
+				font-size: 2.5rem;
+				float: right;
+			}
+
+			/* --- News Slides --- */
+			.purple-bg { background: #3e0078; }
+			.dark-bg { background: #120033; }
+
+			.news-content {
+				text-align: center;
+				max-width: 600px;
+			}
+
+			.news-content h2 {
+				font-family: var(--pixel-font);
+				font-size: 2rem;
+				margin-bottom: 1rem;
+			}
+
+			.btn {
+				display: inline-block;
+				margin-top: 2rem;
+				padding: 1rem 2rem;
+				border: 2px solid white;
+				color: white;
+				text-decoration: none;
+				font-family: var(--pixel-font);
+				font-size: 0.8rem;
+				transition: 0.3s;
+			}
+
+			.btn:hover {
+				background: white;
+				color: #1a0b2e;
+			}
+
+			/* --- Navigation --- */
+			.hero-nav {
+				position: absolute;
+				bottom: 10%;
+				left: 50%;
+				transform: translateX(-50%);
+				z-index: 20;
+				display: flex;
+				gap: 1rem;
+			}
+
+			.nav-item {
+				background: rgba(255,255,255,0.1);
+				border: 1px solid white;
+				color: white;
+				padding: 0.5rem 1rem;
+				cursor: pointer;
+				font-family: var(--pixel-font);
+				font-size: 0.6rem;
+				transition: 0.3s;
+			}
+
+			.nav-item.active {
+				background: white;
+				color: black;
+			}
+
+			@media (max-width: 768px) {
+				.cs-club { font-size: 2.5rem; }
+				.club { font-size: 1.5rem; }
+			}
+		</style>
+
+		<script>
+			const slider = document.getElementById('mainSlider');
+			const navItems = document.querySelectorAll('.nav-item');
+
+			navItems.forEach(item => {
+				item.addEventListener('click', () => {
+					const index = item.getAttribute('data-index');
+					
+					if (slider) {
+						slider.style.transform = `translateX(-${index * 100}vw)`;
+					}
+
+					navItems.forEach(nav => nav.classList.remove('active'));
+					item.classList.add('active');
+				});
+			});
+		</script>
+	</body>
+</html>
